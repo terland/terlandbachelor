@@ -1,0 +1,98 @@
+\documentclass{beamer}
+\usepackage{lmodern} % load a font with all the characters
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+
+
+%Information to be included in the title page:
+\title{Exploring Negami's Conjecture}
+\author{Håvard Utne Terland}
+
+\usetheme{Madrid}
+
+
+
+\begin{document}
+	
+	\frame{\titlepage}
+	
+	\begin{frame}
+	\frametitle{A short introduction}
+	Negami's conjecture is a conjecture in \textbf{topological graph theory}. In this presentation, all graphs are assummed to be finite and simple.
+	
+	\begin{block}{Topological graph theory}
+		Topological graph theory is (more or less) the study of graphs drawn on surfaces. An interesting combination of discrete mathematics and topology.
+	\end{block}
+
+	\begin{example}
+		For a graph $G$, what's the smallest number $g \geq 0$ such that $G$ can be drawn on the orientable surface of genus $g$? NP-Complete, but computable. One can say interesting things about given classes of graphs, i.e $K_n$.
+	\end{example}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Graph covers}
+\begin{definition}
+	A cover of a graph $G$ is a graph $H$ such that there is a surjective map $p:H \rightarrow G$ which is an isomorphism when restricted to the any set on the form $N_{H}(v) \cup {v}$ for $v \in H$. ("local isomorphism")
+\end{definition}
+\begin{theorem}
+	For connected graphs, any cover of it has a well-defined \textit{fold-number}
+\end{theorem}
+
+\begin{proof}{}
+	Let $G$ be connected, let $u,v$ be two vertices in $V(G)$ and let $H$ be a cover of $G$ with projection $p$. Pick a path between them $P = (u,v_1,v_2,v_3,\dots,v_n,v)$ in $G$ and consider $P \subseteq G$ a subgraph of the graph $G$. $p^{-1}(P)$ is a disjoint set of paths, and give bijection between $p^{-1}(u)$ and $p^{-1}(v)$. 
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Planar covers}
+Some non-planar graphs have covers that are planar! $K_5$ and $K_{3,3}$, for example.
+
+\begin{block}{Remark}
+	Not all graphs have planar covers, since planar graphs must have a vertex of degree maximum 5. Thus $K_n$ cannot have planar cover for $n > 6$.
+\end{block}
+
+
+\begin{figure}[h]
+	\input{tfiler/k5cover.tikz}
+	\caption{A 2-fold planar cover of $K_5$}	
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The conjecture}
+Observation: Given a graph $G$, if we can draw it on $\mathbb{R}P^2$ we call it projective-planar. A projective-planar graph has a $2$-fold planar cover of $G$. Simply lift via the 2-1 map $p:S^2 \rightarrow \mathbb{R}P^2$.
+\begin{block}{Negami's Conjecture}
+	A connected graph has a planar cover iff it is projective-planar.
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Generalizing the conjecture}
+\begin{block}{Observation}
+	Negami's conjecture $\Longleftrightarrow$ A graph has a projective-planar cover iff it can be drawn on projective plane.
+\end{block}
+
+\begin{block}{Conjecture (Hliněný)}
+	A graph can be drawn on the Klein bottle iff it has a Klein-cover.
+\end{block}
+
+\begin{example}
+	$K_7$ does not have a klein cover (Hliněný 1999)
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{A question}
+\begin{block}{Which graph families cover themself?}
+	$\mathcal{C}(\mathcal{F}) = \mathcal{F}$ for which graph families $\mathcal{F}$? Can we say anything non-trivial about this in general? 
+\end{block}
+\end{frame}
+
+\end{document}
